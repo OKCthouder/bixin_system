@@ -1,0 +1,36 @@
+.join_style{
+    font-family: MicrosoftYaHei;
+    color: #424242;
+    font-size: 20px;
+    line-height: 36px;
+    margin-top: 44px;
+    margin-buttom: 36px;
+}
+.join_style .join{
+    color: #ff6546;
+    font-size: 16px;
+}
+.join_style .join_title{
+     font-size: 16px;
+     color: #424242;
+    margin-left: 10px;
+ }
+
+.join_style h2{
+    color: #ff6546;
+    font-size: 28px ;
+}
+.join_style .button{
+    display: block;
+    width: 157px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    color: #fff;
+    background:#ff6546;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    right: 0;
+   top:240px;
+}

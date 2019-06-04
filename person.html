@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>数媒公益</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/reg.css">
+    <link rel="stylesheet" type="text/css" href="css/log.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/person.css">
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.form.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/messages_zh.min.js"></script>
+    <script type="text/javascript" src="js/reg.js"></script>
+    <script type="text/javascript" src="js/log.js"></script>
+
+</head>
+<body style="max-width: 1366px;margin: 0 auto;">
+
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-10 col">
+				<div id="logo"></div>
+				<div id="webname">比心公益</div>
+			</div>
+			<div class="col-md-2 col">
+				<div id="header_member">
+					<a href="#" id="reg_a">注 册</a> |
+					<a href="#" id="log_a">登 录</a>
+				</div>
+			</div>
+		</div>
+</div>
+<div class="container-fluid col">
+	<div class="row nav_style">
+			<ul class="nav navbar-nav" id="nav">
+				<li class="col-md-2 col-sm-2 col"><a href="index.html">首页</a></li>
+				<li class="col-md-3 col-sm-3 col"><a href="activity.html">公益活动及培训</a></li>
+				<li class="col-md-2 col-sm-2 col"><a href="news_index.html">新闻</a></li>
+				<li class="col-md-3 col-sm-3 col"><a href="management.html">系统管理</a></li>
+				<li class="col-md-2 col-sm-2 col"><a href="#" class="ab">个人中心</a></li>
+			</ul>
+	</div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2" ></div>
+        <div class="col-md-8" style=" height: 580px; position: relative" >
+            <form id="person" action="" method="post">
+                <div class="title">个人信息</div>
+                <div class="weizhi" >
+                    <label for="name">姓名 :</label>
+                    <input type="text" name="name" id="name" class="input">
+                </div>
+                <div class="weizhi margin">
+                    <span>性别 :</span>
+                    <input type="radio" name="sex" id="man" value="0"> <label for="man">男</label>
+                    <input type="radio" name="sex" id="woman" value="1"> <label for="woman">女</label>
+                </div>
+                <div class="weizhi margin">
+                    <span >身份 :</span>
+                    <input type="radio" name="identity" id="shouzhuren"> <label for="shouzhuren">受助人</label>
+                    <input type="radio" name="identity" id="yigong"> <label for="yigong">义工</label>
+                    <span class="span">（选中保存后不可更改）</span>
+                </div>
+                <div class="weizhi">
+                    <label for="address">地址 :</label>
+                    <input type="text" name="address" id="address" class="input">
+                </div>
+                <div class="weizhi">
+                    <label for="phone">电话 :</label>
+                    <input type="number"  name="phone" id="phone" class="input">
+                </div>
+                <div class="file_btn" style="width: 145px; height: 145px;">
+                    <input type="file" name="file" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*" class="file" style="width: 145px; height: 145px;opacity: 0;position: relative;z-index: 2;" >
+                    <div style="position:absolute;z-index: 1;top: 0">
+                    <img id="xmTanImg" style="width: 145px; height: 145px; "></div>
+
+                </div>
+                <button type="submit" value="保存" class="button" >保存</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div>
+    <form id="reg" action="php/add.php" method="post">
+        <p>
+            <label for="username">帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+            <input type="text" name="username" class="text" />
+            <span class="star">*</span>
+        </p><br>
+        <p>
+            <label for="pass">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+            <input type="password" name="pass" class="text" id="pass"  />
+            <span class="star">*</span>
+        </p><br>
+        <p>
+            <label for="pass">确认密码：</label>
+            <input type="password" name="pass1" class="text"  />
+            <span class="star">*</span>
+        </p><br>
+        <p>
+            <label for="email">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label>
+            <input type="email" name="email" class="text"  />
+            <span class="star">*</span>
+        </p><br>
+
+        <ol class="reg_error"></ol>
+    </form>
+    <form id="log" action="php/login.php" method="post">
+		<p>
+			<label for="username">帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+			<input type="text" name="login_username" class="text" id="login_username">
+			<span class="star">*</span>
+		</p><br>
+		<p>
+			<label for="pass">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+			<input type="password" name="login_pass" class="text" id="login_pass"  />
+			<span class="star">*</span>
+		</p><br>
+	</form>
+
+	<p><p><div id="loading">正在提交数据，请稍候...</div></p></p>
+</div>
+<script type="text/javascript">
+    //判断浏览器是否支持FileReader接口
+    if (typeof FileReader == 'undefined') {
+        document.getElementById("xmTanDiv").InnerHTML = "<h1>当前浏览器不支持FileReader接口</h1>";
+        //使选择控件不可操作
+        document.getElementById("xdaTanFileImg").setAttribute("disabled", "disabled");
+    }
+
+    //选择图片，马上预览
+    function xmTanUploadImg(obj) {
+        var file = obj.files[0];
+
+        console.log(obj);console.log(file);
+        console.log("file.size = " + file.size);  //file.size 单位为byte
+
+        var reader = new FileReader();
+
+        //读取文件过程方法
+        reader.onloadstart = function (e) {
+            console.log("开始读取....");
+        }
+        reader.onprogress = function (e) {
+            console.log("正在读取中....");
+        }
+        reader.onabort = function (e) {
+            console.log("中断读取....");
+        }
+        reader.onerror = function (e) {
+            console.log("读取异常....");
+        }
+        reader.onload = function (e) {
+            console.log("成功读取....");
+
+            var img = document.getElementById("xmTanImg");
+            img.src = e.target.result;
+            //或者 img.src = this.result;  //e.target == this
+        }
+
+        reader.readAsDataURL(file)
+    }
+</script>
+</body>
+</html>

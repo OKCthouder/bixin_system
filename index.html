@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>数媒公益</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/nav.css">
+	<link rel="stylesheet" type="text/css" href="css/reg.css">
+	<link rel="stylesheet" type="text/css" href="css/log.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" href="css/imageflow.css">
+
+
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/jquery.form.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="js/messages_zh.min.js"></script>
+	<script type="text/javascript" src="js/reg.js"></script>
+	<script type="text/javascript" src="js/log.js"></script>
+	<script type="text/javascript" src="js/imageflow.js"></script>
+
+
+</head>
+<body style="max-width: 1366px;margin: 0 auto;">
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-10 col">
+			<div id="logo"></div>
+			<div id="webname">比心公益</div>
+		</div>
+		<div class="col-md-2 col">
+			<div id="header_member">
+				<a href="#" id="reg_a">注 册</a> |
+				<a href="#" id="log_a">登 录</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid col">
+	<div class="row nav_style">
+		<ul class="nav navbar-nav" id="nav">
+			<li class="col-md-2 col-sm-2 col"><a href="#" class="ab">首页</a></li>
+			<li class="col-md-3 col-sm-3 col"><a href="activity.html">公益活动及培训</a></li>
+			<li class="col-md-2 col-sm-2 col"><a href="news_index.html">新闻</a></li>
+			<li class="col-md-3 col-sm-3 col"><a href="management.html">系统管理</a></li>
+			<li class="col-md-2 col-sm-2 col"><a href="person.html">个人中心</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="container-fluid col">
+	<div id="img" style="" >
+		<div id="LoopDiv" style="" >
+			<input id="S_Num" type="hidden" value="3" />
+			<div id="starsIF" class="imageflow" >
+				<img src="images/44.png" longdesc="#"  alt="Picture" />
+				<img src="images/33.png" longdesc="#"  alt="Picture" />
+				<img src="images/55.png" longdesc="#"  alt="Picture" />
+				<img src="images/44.png" longdesc="#"  alt="Picture" />
+				<img src="images/33.png" longdesc="#"  alt="Picture" />
+				<img src="images/55.png" longdesc="#"  alt="Picture" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row" style="height: 250px;margin: 0 100px;">
+		<div id="L-announcement" class="col-md-6" >
+			<p class="head">最新公益活动<span><a href="#" style="color: #56a3f3;">查看更多></a></span></p>
+
+			<div id="ra1">
+				<p><a href="#">衣暖人心 旧衣再赠 再利用环保公益活动</a></p>
+				<p><a href="#">志愿者服务队招募志愿者</a></p>
+				<p><a href="#">蒲公英爱心水饺走进敬老院活动进行中</a></p>
+				<p><a href="#">联合国教科文为中国支教招聘志愿者老师</a></p>
+			</div>
+		</div>
+		<div id="R-announcement" class="col-md-6">
+			<p class="head">最新公益新闻<span><a href="#" style="color: #56a3f3;">查看更多></a></span></p>
+
+			<div id="ra2">
+				<p><a href="#">2017年中国公益年会在京举行</a></p>
+				<p><a href="#">首批内蒙古先心病患儿接受手术治疗</a></p>
+				<p><a href="#">公益不是功利，“黑科技”套捐亵渎公益</a></p>
+				<p><a href="#">新疆颁发出首张慈善组织公募资格证</a></p>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div  >
+	<form id="reg" action="php/add.php" method="post">
+		<p>
+			<label for="username">帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+			<input type="text" name="username" class="text" />
+			<span class="star">*</span>
+		</p><br>
+		<p>
+			<label for="pass">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+			<input type="password" name="pass" class="text" id="pass"  />
+			<span class="star">*</span>
+		</p><br>
+		<p>
+			<label for="pass">确认密码：</label>
+			<input type="password" name="pass1" class="text"  />
+			<span class="star">*</span>
+		</p><br>
+		<p>
+			<label for="email">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label>
+			<input type="email" name="email" class="text"  />
+			<span class="star">*</span>
+		</p><br>
+
+		<ol class="reg_error"></ol>
+	</form>
+
+	<form id="log" action="php/login.php" method="post">
+		<p>
+			<label for="username">帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+			<input type="text" name="login_username" class="text" id="login_username">
+			<span class="star">*</span>
+		</p><br>
+		<p>
+			<label for="pass">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+			<input type="password" name="login_pass" class="text" id="login_pass"  />
+			<span class="star">*</span>
+		</p><br>
+	</form>
+
+	<p><p><div id="loading">正在提交数据，请稍候...</div></p></p>
+
+</div>
+
+</body>
+</html>

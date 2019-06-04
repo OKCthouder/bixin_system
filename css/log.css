@@ -1,0 +1,47 @@
+#log {
+padding:15px;
+background-color: #fff;
+}
+#log p {
+margin:10px 0;
+padding:0;
+}
+#log p label {
+font-size:14px;
+color:#666;
+}
+#log p .star {
+color:maroon;
+}
+#log p .success {
+display:inline-block;
+width:28px;
+background:url(../images/right.png) no-repeat;
+}
+#log .text {
+border-radius:4px;
+border:1px solid #ccc;
+background:#fff;
+height:25px;
+width:200px;
+text-indent:5px;
+color:#666;
+}
+#log ol {
+margin:0;
+padding:0 0 0 20px;
+color:maroon;
+}
+#log ol li {
+height:20px;
+}
+
+#loading {
+background:#fff;
+line-height:25px;
+font-size:14px;
+font-weight:bold;
+text-indent:40px;
+color:#666;
+text-align: center;
+}

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>数媒公益</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/reg.css">
+    <link rel="stylesheet" type="text/css" href="css/log.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/management.css">
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.form.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/messages_zh.min.js"></script>
+    <script type="text/javascript" src="js/reg.js"></script>
+    <script type="text/javascript" src="js/log.js"></script>
+    <script src="js/jquery.metisMenu.js"></script>
+    <script src="js/custom.js"></script>
+    <script type="text/javascript" src="js/showandhide.js"></script>
+    <script type="text/javascript">
+    //判断浏览器是否支持FileReader接口
+    if (typeof FileReader == 'undefined') {
+        document.getElementById("xmTanDiv").InnerHTML = "<h1>当前浏览器不支持FileReader接口</h1>";
+        //使选择控件不可操作
+        document.getElementById("xdaTanFileImg").setAttribute("disabled", "disabled");
+    }
+
+    //选择图片，马上预览
+    function xmTanUploadImg(obj) {
+        var file = obj.files[0];
+
+        console.log(obj);console.log(file);
+        console.log("file.size = " + file.size);  //file.size 单位为byte
+
+        var reader = new FileReader();
+
+        //读取文件过程方法
+        reader.onloadstart = function (e) {
+            console.log("开始读取....");
+        }
+        reader.onprogress = function (e) {
+            console.log("正在读取中....");
+        }
+        reader.onabort = function (e) {
+            console.log("中断读取....");
+        }
+        reader.onerror = function (e) {
+            console.log("读取异常....");
+        }
+        reader.onload = function (e) {
+            console.log("成功读取....");
+
+            var img = document.getElementById("xmTanImg");
+            img.src = e.target.result;
+            //或者 img.src = this.result;  //e.target == this
+        }
+
+        reader.readAsDataURL(file)
+    }
+</script>
+
+</head>
+<body style="max-width: 1366px;margin: 0 auto;">
+
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-10 col">
+				<div id="logo"></div>
+				<div id="webname">比心公益</div>
+			</div>
+			<div class="col-md-2 col">
+				<div id="header_member">
+					<a href="#" id="reg_a">注 册</a> |
+					<a href="#" id="log_a">登 录</a>
+				</div>
+			</div>
+		</div>
+</div>
+<div class="container-fluid col">
+	<div class="row nav_style">
+			<ul class="nav navbar-nav" id="nav">
+				<li class="col-md-2 col-sm-2 col"><a href="index.html">首页</a></li>
+				<li class="col-md-3 col-sm-3 col"><a href="activity.html">公益活动及培训</a></li>
+				<li class="col-md-2 col-sm-2 col"><a href="news_index.html">新闻</a></li>
+				<li class="col-md-3 col-sm-3 col"><a href="#" class="ab">系统管理</a></li>
+				<li class="col-md-2 col-sm-2 col"><a href="person.html">个人中心</a></li>
+			</ul>
+	</div>
+</div>
+
+<div class="container-fluid col">
+    <div id="wrapper">
+        <nav class="navbar navbar-side">
+            <div>
+                <ul class="nav nav-frist-level" id="main-menu">
+                    <li class="active">
+                        <a href="#">人员管理<span></span></a>
+                        <ul class="nav nav-second-level collapse in">
+                            <li><a  href="#" onclick="show_volmanagement()">义工管理</a></li><!---->
+                            <li><a href="#" onclick="show_recmanagement()">受助对象管理</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#">活动管理<span></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="#" onclick="show_relactivity()">发布活动</a></li>
+                            <li><a href="#" onclick="show_allactivity()">全部活动</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#">新闻管理<span></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="#" onclick="show_relnews()">发布新闻</a></li>
+                            <li><a href="#" onclick="show_allnews()">全部新闻</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#">培训管理<span></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="#" onclick="show_reltraining()">发布培训</a></li>
+                            <li><a href="#" onclick="show_alltraining()">全部培训</a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="#">考核管理<span></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="#" onclick="show_pwassessment1()">公益考核</a></li>
+                            <li><a href="#" onclick="show_pwdetails()">培训考核</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+</div>
+<div id="all_activity" style="display: none;">
+    <div class="f_header">
+        <span class="f_01">编号</span> <span class="f_02">活动主题</span> <span class="f_03">发布时间</span> <span class="f_04">操作</span>
+    </div>
+    <div class="line_01">
+    </div>
+    <ul style="list-style: none;">
+        <li><div class="f_011">01</div> <div class="f_022"><a href="#">衣暖人间 旧衣捐赠 再利用环保公益活动</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">02</div> <div class="f_022"><a href="#">志愿服务队招聘志愿者</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">03</div> <div class="f_022"><a href="#">蒲公英爱心水饺走进老人院活动进行中</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">04</div> <div class="f_022"><a href="#">联合国教科文为中国招聘志愿者老师</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">05</div> <div class="f_022"><a href="#">衣暖人间 旧衣捐赠 再利用环保公益活动</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">06</div> <div class="f_022"><a href="#">志愿服务队招聘志愿者</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">07</div> <div class="f_022"><a href="#">蒲公英爱心水饺走进老人院活动进行中</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">08</div> <div class="f_022"><a href="#">联合国教科文为中国招聘志愿者老师</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+    </ul>
+    <div id="mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+
+<div id="all_training" style="display: none;">
+    <div class="f_header">
+        <span class="f_01">编号</span> <span class="f_02">培训主题</span> <span class="f_03">发布时间</span> <span class="f_04">操作</span>
+    </div>
+    <div class="line_01">
+    </div>
+     <ul style="list-style: none;">
+        <li><div class="f_011">01</div> <div class="f_022"><a href="#">体育培训公益班</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">02</div> <div class="f_022"><a href="#">春季妇女公益班</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">03</div> <div class="f_022"><a href="#" onclick="show_traassessment()">龙城老年大学</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">04</div> <div class="f_022"><a href="#">儿童守护公益培训</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">05</div> <div class="f_022"><a href="#">体育培训公益班</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">06</div> <div class="f_022"><a href="#">秋季妇女公益班</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">07</div> <div class="f_022"><a href="#">龙城老年大学</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">08</div> <div class="f_022"><a href="#">南京老年大学</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+    </ul>
+    <div id="mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+
+<div id="pw_assessment1" style="display: none;">
+    <div class="f_header">
+        <span class="f_01">编号</span> <span class="f_02">公益活动列表</span> <span class="f_03">完成时间</span> 
+    </div>
+    <div class="line_01">
+    </div>
+     <ul style="list-style: none;margin-top: 30px;">
+        <li><div class="f_0111">01</div> <div class="f_0222"><a href="#" onclick="show_pwdetails()">体育培训公益班</a></div> <div class="f_0333">2017年12月12日 14:23</div> </li>
+        <li><div class="f_0111">02</div> <div class="f_0222"><a href="#">春季妇女公益班</a></div> <div class="f_0333">2017年12月12日 14:23</div> </li>
+        <li><div class="f_0111">03</div> <div class="f_0222"><a href="#">龙城老年大学</a></div> <div class="f_0333">2017年12月12日 14:23</div> </li>
+        <li><div class="f_0111">04</div> <div class="f_0222"><a href="#">儿童守护公益培训</a></div> <div class="f_0333">2017年12月12日 14:23</div> </li>
+        <li><div class="f_0111">05</div> <div class="f_0222"><a href="#">体育培训公益班</a></div> <div class="f_0333">2017年12月12日 14:23</div> </li>
+        <li><div class="f_0111">06</div> <div class="f_0222"><a href="#">秋季妇女公益班</a></div> <div class="f_0333">2017年12月12日 14:23</div> </li>
+        <li><div class="f_0111">07</div> <div class="f_0222"><a href="#">龙城老年大学</a></div> <div class="f_0333">2017年12月12日 14:23</div> </li>
+        <li><div class="f_0111">08</div> <div class="f_0222"><a href="#">南京老年大学</a></div> <div class="f_0333">2017年12月12日 14:23</div> </li>
+    </ul>
+    <div id="mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+
+<div id="rec_management" style="display: none;">
+     <div class="f_header">
+        <span class="rec_1">编号</span> <span class="rec_2">姓名</span> <span class="rec_3">性别</span> <span class="rec_4">联系方式</span> <span class="rec_5">受助次数</span> <span class="rec_6">操作</span>
+    </div>
+    <div class="line_01" >
+    </div>
+    <ul style="list-style: none;">
+        <li><div class="rec_01">01</div> <div class="rec_02">张小小</div> <div class="rec_03">男</div><div class="rec_04">13420204561</div> <div class="rec_05">2次&nbsp;<a href="#" onclick="show_recdetails()">查看详情</a></div> <div class="rec_06"><a href="#">编辑</a></div></li>
+        <li><div class="rec_01">02</div> <div class="rec_02">张小小</div> <div class="rec_03">男</div><div class="rec_04">13420204561</div> <div class="rec_05">2次&nbsp;<a href="#" onclick="show_recdetails()">查看详情</a></div> <div class="rec_06"><a href="#">编辑</a></div></li>
+        <li><div class="rec_01">03</div> <div class="rec_02">张小小</div> <div class="rec_03">男</div><div class="rec_04">13420204561</div> <div class="rec_05">2次&nbsp;<a href="#" onclick="show_recdetails()">查看详情</a></div> <div class="rec_06"><a href="#">编辑</a></div></li>
+        <li><div class="rec_01">04</div> <div class="rec_02">张小小</div> <div class="rec_03">男</div><div class="rec_04">13420204561</div> <div class="rec_05">2次&nbsp;<a href="#" onclick="show_recdetails()">查看详情</a></div> <div class="rec_06"><a href="#">编辑</a></div></li>
+        <li><div class="rec_01">05</div> <div class="rec_02">张小小</div> <div class="rec_03">男</div><div class="rec_04">13420204561</div> <div class="rec_05">2次&nbsp;<a href="#" onclick="show_recdetails()">查看详情</a></div> <div class="rec_06"><a href="#">编辑</a></div></li>
+        <li><div class="rec_01">06</div> <div class="rec_02">张小小</div> <div class="rec_03">男</div><div class="rec_04">13420204561</div> <div class="rec_05">2次&nbsp;<a href="#" onclick="show_recdetails()">查看详情</a></div> <div class="rec_06"><a href="#">编辑</a></div></li>
+        <li><div class="rec_01">07</div> <div class="rec_02">张小小</div> <div class="rec_03">男</div><div class="rec_04">13420204561</div> <div class="rec_05">2次&nbsp;<a href="#" onclick="show_recdetails()">查看详情</a></div> <div class="rec_06"><a href="#">编辑</a></div></li>
+        <li><div class="rec_01">08</div> <div class="rec_02">张小小</div> <div class="rec_03">男</div><div class="rec_04">13420204561</div> <div class="rec_05">2次&nbsp;<a href="#" onclick="show_recdetails()">查看详情</a></div> <div class="rec_06"><a href="#">编辑</a></div></li>
+    </ul>
+    <div id="mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+<div id="vol_management" >
+     <div class="f_header">
+        <span class="vol_1">编号</span> <span class="vol_2">姓名</span> <span class="vol_3">性别</span> <span class="vol_4">联系方式</span> <span class="vol_5">参加过的活动</span> <span class="vol_6">参加过的培训</span> 
+        <span class="vol_7">操作</span>
+    </div>
+    <div class="line_01" >
+    </div>
+    <ul style="list-style: none;">
+        <li><div class="vol_01">01</div> <div class="vol_02">张小小</div> <div class="vol_03">男</div><div class="vol_04">13420204561</div> <div class="vol_05">2次&nbsp;<a href="#" onclick="show_actdetails()">查看详情</a></div><div class="vol_06">2次&nbsp;<a href="#" onclick="show_tradetails()">查看详情</a></div> <div class="vol_07"><a href="#">编辑</a></div></li>
+
+        <li><div class="vol_01">02</div> <div class="vol_02">张小小</div> <div class="vol_03">男</div><div class="vol_04">13420204561</div> <div class="vol_05">2次&nbsp;<a href="#" onclick="show_actdetails()">查看详情</a></div><div class="vol_06">2次&nbsp;<a href="#" onclick="show_tradetails()">查看详情</a></div> <div class="vol_07"><a href="#">编辑</a></div></li>
+
+        <li><div class="vol_01">03</div> <div class="vol_02">张小小</div> <div class="vol_03">男</div><div class="vol_04">13420204561</div> <div class="vol_05">2次&nbsp;<a href="#" onclick="show_actdetails()">查看详情</a></div><div class="vol_06">2次&nbsp;<a href="#" onclick="show_tradetails()">查看详情</a></div> <div class="vol_07"><a href="#">编辑</a></div></li>
+
+        <li><div class="vol_01">04</div> <div class="vol_02">张小小</div> <div class="vol_03">男</div><div class="vol_04">13420204561</div> <div class="vol_05">2次&nbsp;<a href="#" onclick="show_actdetails()">查看详情</a></div><div class="vol_06">2次&nbsp;<a href="#" onclick="show_tradetails()">查看详情</a></div> <div class="vol_07"><a href="#">编辑</a></div></li>
+
+        <li><div class="vol_01">05</div> <div class="vol_02">张小小</div> <div class="vol_03">男</div><div class="vol_04">13420204561</div> <div class="vol_05">2次&nbsp;<a href="#" onclick="show_actdetails()">查看详情</a></div><div class="vol_06">2次&nbsp;<a href="#" onclick="show_tradetails()">查看详情</a></div> <div class="vol_07"><a href="#">编辑</a></div></li>
+
+        <li><div class="vol_01">06</div> <div class="vol_02">张小小</div> <div class="vol_03">男</div><div class="vol_04">13420204561</div> <div class="vol_05">2次&nbsp;<a href="#" onclick="show_actdetails()">查看详情</a></div><div class="vol_06">2次&nbsp;<a href="#" onclick="show_tradetails()">查看详情</a></div> <div class="vol_07"><a href="#">编辑</a></div></li>
+
+        <li><div class="vol_01">07</div> <div class="vol_02">张小小</div> <div class="vol_03">男</div><div class="vol_04">13420204561</div> <div class="vol_05">2次&nbsp;<a href="#" onclick="show_actdetails()">查看详情</a></div><div class="vol_06">2次&nbsp;<a href="#" onclick="show_tradetails()">查看详情</a></div> <div class="vol_07"><a href="#">编辑</a></div></li>
+
+        <li><div class="vol_01">08</div> <div class="vol_02">张小小</div> <div class="vol_03">男</div><div class="vol_04">13420204561</div> <div class="vol_05">2次&nbsp;<a href="#" onclick="show_actdetails()">查看详情</a></div><div class="vol_06">2次&nbsp;<a href="#" onclick="show_tradetails()">查看详情</a></div> <div class="vol_07"><a href="#">编辑</a></div></li>
+    </ul>
+    <div id="mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+
+<div id="all_news" style="display: none;">
+    <div class="f_header">
+        <span class="f_01">编号</span> <span class="f_02">新闻标题</span> <span class="f_03">发布时间</span> <span class="f_04">操作</span>
+    </div>
+    <div class="line_01">
+    </div>
+     <ul style="list-style: none;">
+        <li><div class="f_011">01</div> <div class="f_022"><a href="#">体育培训公益班</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">02</div> <div class="f_022"><a href="#">春季妇女公益班</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">03</div> <div class="f_022"><a href="#">龙城老年大学</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">04</div> <div class="f_022"><a href="#">儿童守护公益培训</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">05</div> <div class="f_022"><a href="#">体育培训公益班</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">06</div> <div class="f_022"><a href="#">秋季妇女公益班</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">07</div> <div class="f_022"><a href="#">龙城老年大学</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+        <li><div class="f_011">08</div> <div class="f_022"><a href="#">南京老年大学</a></div> <div class="f_033">2017年12月12日 14:23</div> <div class="f_044"><a href="#">编辑</a><a> | </a><a href="#">删除</a></div></li>
+    </ul>
+    <div id="mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+
+<div id="act_details" style="display: none;">
+    <div class="_header">参加过的活动</div>
+    <a href="#"><img src="images/close.png" style="position: absolute; width: 20px;height: 20px;top: 8%;left: 92%" onclick="hide_actdetails()"></a>
+    <ul>
+        <li style="margin-top: 20px;">衣暖人间 旧衣捐赠 再利用环保公益活动</li>
+        <li>志愿服务队招聘志愿者</li>
+        <li>蒲公英爱心水饺走进老人院活动进行中</li>
+        <li>联合国教科文为中国招聘志愿者老师</li>
+        <li>衣暖人间 旧衣捐赠 再利用环保公益活动</li>
+        <li>志愿服务队招聘志愿者</li>
+        <li>蒲公英爱心水饺走进老人院活动进行中</li>
+        <li>联合国教科文为中国招聘志愿者老师</li>
+    </ul>
+    <div id="recdetails_mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+
+<div id="tra_details" style="display: none;">
+    <div class="_header">参加过的培训</div>
+    <a href="#"><img src="images/close.png" style="position: absolute; width: 20px;height: 20px;top: 8%;left: 92%" onclick="hide_tradetails()"></a>
+    <ul>
+        <li style="margin-top: 20px;">衣暖人间 旧衣捐赠 再利用环保公益活动</li>
+        <li>志愿服务队招聘志愿者</li>
+        <li>蒲公英爱心水饺走进老人院活动进行中</li>
+        <li>联合国教科文为中国招聘志愿者老师</li>
+        <li>衣暖人间 旧衣捐赠 再利用环保公益活动</li>
+        <li>志愿服务队招聘志愿者</li>
+        <li>蒲公英爱心水饺走进老人院活动进行中</li>
+        <li>联合国教科文为中国招聘志愿者老师</li>
+    </ul>
+    <div id="recdetails_mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+
+<div id="rec_details" style="display: none;">
+    <div class="_header">受助情况</div>
+    <a href="#"><img src="images/close.png" style="position: absolute; width: 20px;height: 20px;top: 8%;left: 92%" onclick="hide_recdetails()"></a>
+    <ul>
+        <li style="margin-top: 20px;">衣暖人间 旧衣捐赠 再利用环保公益活动</li>
+        <li>志愿服务队招聘志愿者</li>
+        <li>蒲公英爱心水饺走进老人院活动进行中</li>
+        <li>联合国教科文为中国招聘志愿者老师</li>
+        <li>衣暖人间 旧衣捐赠 再利用环保公益活动</li>
+        <li>志愿服务队招聘志愿者</li>
+        <li>蒲公英爱心水饺走进老人院活动进行中</li>
+        <li>联合国教科文为中国招聘志愿者老师</li>
+    </ul>
+    <div id="recdetails_mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+
+<div id="pw_details" style="display: none;">
+    <div class="pw_header"><span class="pw_header_1">公益活动列表</span> —— "益行家" 探访沙龙 探索透明新途径 —— 参与人员列表</div>
+    <div class="f_header" style="padding-top: 30px;">
+        <span class="pwd_1">编号</span> <span class="pwd_2">姓名</span> <span class="pwd_3">积极性(1-10)</span> <span class="pwd_4">贡献度(1-10)</span> <span class="pwd_5">受助人评价(1-10)</span> <span class="pwd_6">整体得分</span>
+    </div>
+    <div class="line_01" >
+    </div>
+    <ul style="list-style: none;">
+        <li><div class="pwd_01">01</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10" id="score1"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10" id="score2"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10" id="score3"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true" id="sum" onclick="sums()"></div></li>
+
+        <li><div class="pwd_01">02</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">03</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">04</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">05</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">06</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">07</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">08</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+    </ul>
+    <div id="mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+
+<div id="tra_assessment" style="display: none;">
+    <div class="pw_header"><span class="pw_header_1">培训列表</span> —— 龙城老年大学 —— 参与人员列表</div>
+    <div class="f_header" style="padding-top: 30px;">
+        <span class="pwd_1">编号</span> <span class="pwd_2">姓名</span> <span class="pwd_3">积极性(1-10)</span> <span class="pwd_4">贡献度(1-10)</span> <span class="pwd_5">受助人评价(1-10)</span> <span class="pwd_6">整体得分</span>
+    </div>
+    <div class="line_01" >
+    </div>
+    <ul style="list-style: none;">
+        <li><div class="pwd_01">01</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10" id="score1"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10" id="score2"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10" id="score3"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true" id="sum" onclick="sums()"></div></li>
+
+        <li><div class="pwd_01">02</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">03</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">04</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">05</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">06</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">07</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+        <li><div class="pwd_01">08</div> <div class="pwd_02">张小小</div> <div class="pwd_03"><input type="number" class="input1" name="" min="0" max="10"></div><div class="pwd_04"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_05"><input type="number" class="input1" name="" min="0" max="10"></div> <div class="pwd_06"><input type="text" class="input1" readonly="true"></div></li>
+
+    </ul>
+    <div id="mulu" >
+       <span> <a class="mulu1">|<</a>&nbsp;  <a class="active">1</a>&nbsp; <a class="mulu3">2</a>&nbsp;  <a class="mulu3">3</a>&nbsp;  <a class="mulu3">4</a>&nbsp;  <a class="mulu3">5</a>&nbsp;  <a class="mulu3">...</a>&nbsp;  <a class="mulu3">12</a>&nbsp;  <a class="mulu1">>|</a> </span>
+    </div>
+</div>
+
+<div id="rel_training" style="position: relative;display: none;">
+    <div class="pw_header"><span class="pw_header_1">发布培训</span></div>
+    <form id="rel_tra_form" action="" method="">
+        <ul style="list-style: none;">
+            <li>培训主题：<input type="text" name="" style="width:650px;height:30px;" ></li>
+            <li>报名截止：<input type="text" name="" style="width: 60px;height: 30px;"> 年 <input type="text" name="" style="width: 60px;height: 30px;"> 月 <input type="text" name="" style="width: 60px;height: 30px;"> 日 <input type="text" name="" style="width: 60px;height: 30px;"> 时 <input type="text" name="" style="width: 60px;height: 30px;"> 分 <input type="text" name="" style="width: 60px;height: 30px;"> 秒 </li>
+            <li>报名人数：<input type="text" name="" style="width: 700px;height: 30px;"></li>
+            <li>培训时间：<input type="text" name="" style="width: 700px;height: 30px;"></li>
+            <li>培训地点：<input type="text" name="" style="width: 700px;height: 30px;"></li>
+            <li>培训详情：<input type="text" name="" style="width: 700px;height: 100px;padding-bottom: 70px;"></li>
+        </ul>
+        <div class="file_btn" style="width: 145px; height: 145px;">
+            <input type="file" name="file" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*" class="file" style="width: 145px; height: 145px;opacity: 0;position: relative;z-index: 2;" >
+            <div style="position:absolute;z-index: 1;top: 0">
+            <img id="xmTanImg" style="width: 145px; height: 145px; "></div>
+        </div>
+        <button type="submit" value="" class="button" style="width: 157px;height: 43px;font-size: 20px;background-color: #ff6546; border:none;color: white;margin-top: 22px;margin-left: 652px;">确定发布</button>
+    </form>
+</div>
+
+<div id="rel_activity" style="position: relative;display: none;" >
+    <div class="pw_header"><span class="pw_header_1">发布活动</span></div>
+    <form id="rel_act_form" action="" method="">
+        <ul style="list-style: none;">
+            <li>活动标题：<input type="text" name="" style="width:650px;height:30px;" ></li>
+            <li>报名截止：<input type="text" name="" style="width: 60px;height: 30px;"> 年 <input type="text" name="" style="width: 60px;height: 30px;"> 月 <input type="text" name="" style="width: 60px;height: 30px;"> 日 <input type="text" name="" style="width: 60px;height: 30px;"> 时 <input type="text" name="" style="width: 60px;height: 30px;"> 分 <input type="text" name="" style="width: 60px;height: 30px;"> 秒 </li>
+            <li>报名人数：<input type="text" name="" style="width: 700px;height: 30px;"></li>
+            <li>活动时间：<input type="text" name="" style="width: 700px;height: 30px;"></li>
+            <li>活动地点：<input type="text" name="" style="width: 700px;height: 30px;"></li>
+            <li>活动详情：<input type="text" name="" style="width: 700px;height: 100px;padding-bottom: 70px;"></li>
+        </ul>
+        <div class="file_btn" style="width: 145px; height: 145px;">
+            <input type="file" name="file" id="xdaTanFileImg" onchange="xmTanUploadImg(this)" accept="image/*" class="file" style="width: 145px; height: 145px;opacity: 0;position: relative;z-index: 2;" >
+            <div style="position:absolute;z-index: 1;top: 0">
+            <img id="xmTanImg" style="width: 145px; height: 145px; "></div>
+        </div>
+        <button type="submit" value="" class="button" style="width: 157px;height: 43px;font-size: 20px;background-color: #ff6546; border:none;color: white;margin-top: 22px;margin-left: 652px;">确定发布</button>
+    </form>
+</div>
+
+<div id="rel_news" style="position: relative;display: none;">
+    <div class="pw_header"><span class="pw_header_1">发布新闻</span></div>
+    <form id="rel_news_form" action="" method="">
+        <ul style="list-style: none;">
+            <li>新闻标题：<input type="text" name="" style="width:700px;height:30px;" ></li>
+            <li>新闻详情：<input type="text" name="" style="width:700px;height: 350px;padding-bottom: 320px;"></li>
+        </ul>
+        <button type="submit" value="" class="button" style="width: 157px;height: 43px;font-size: 20px;background-color: #ff6546; border:none;color: white;margin-top: 22px;margin-left: 652px;">确定发布</button>
+    </form>
+</div>
+
+
+
+<div id="bg" style="display: none;"></div>
+
+<div>
+    <form id="reg" action="php/add.php" method="post">
+        <p>
+            <label for="username">帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+            <input type="text" name="username" class="text" />
+            <span class="star">*</span>
+        </p><br>
+        <p>
+            <label for="pass">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+            <input type="password" name="pass" class="text" id="pass"  />
+            <span class="star">*</span>
+        </p><br>
+        <p>
+            <label for="pass">确认密码：</label>
+            <input type="password" name="pass1" class="text"  />
+            <span class="star">*</span>
+        </p><br>
+        <p>
+            <label for="email">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label>
+            <input type="email" name="email" class="text"  />
+            <span class="star">*</span>
+        </p><br>
+
+        <ol class="reg_error"></ol>
+    </form>
+    <form id="log" action="php/login.php" method="post">
+        <p>
+            <label for="username">帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+            <input type="text" name="login_username" class="text" id="login_username">
+            <span class="star">*</span>
+        </p><br>
+        <p>
+            <label for="pass">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+            <input type="password" name="login_pass" class="text" id="login_pass"  />
+            <span class="star">*</span>
+        </p><br>
+    </form>
+
+    <p><p><div id="loading">正在提交数据，请稍候...</div></p></p>
+</div>
+</body>
+</html>

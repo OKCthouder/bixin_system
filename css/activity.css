@@ -1,0 +1,45 @@
+.activity_style{
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+    margin: 60px 4% 0;
+}
+.headline{
+    font-family: MicrosoftYaHei;
+    font-size: 20px;
+    color: #ff6344;
+    margin-bottom: 26px;
+}
+.content{
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+.content li a{
+    padding: 3px 0;
+}
+.content .title{
+    color: #424242;
+}
+.content .condition_ing{
+    color: #ff6546;
+}
+.content .condition_end{
+    color: #888888;
+}
+.content .date{
+    color: #888888;
+    margin-right: 40px;
+    float: right;
+}
+.more{
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #88bcf6;
+    display: inline-block;
+    width: 100px;
+    position: relative;
+    bottom: 0;
+    left: 50%;
+    margin-left: -50px;
+}

@@ -1,0 +1,49 @@
+#reg {
+padding:15px;
+background-color: #fff;
+}
+#reg p {
+margin:10px 0;
+padding:0;
+}
+#reg p label {
+font-size:14px;
+color:#666;
+}
+#reg p .star {
+color:maroon;
+}
+#reg p .success {
+display:inline-block;
+width:28px;
+background:url(../images/right.png) no-repeat;
+}
+#reg .text {
+border-radius:4px;
+border:1px solid #ccc;
+background:#fff;
+height:25px;
+width:200px;
+text-indent:5px;
+color:#666;
+}
+#reg ol {
+margin:0;
+padding:0 0 0 20px;
+color:maroon;
+}
+#reg ol li {
+height:20px;
+}
+
+#loading {
+width: 200px;
+height: 60px;
+background:#fff;
+line-height:25px;
+font-size:14px;
+font-weight:bold;
+text-indent:40px;
+color:#666;
+text-align: center;
+}

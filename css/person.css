@@ -1,0 +1,72 @@
+.title{
+    width: 90px;
+    height: 21px;
+    font-family: MicrosoftYaHei;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 12px;
+    letter-spacing: 2px;
+    color: #ff6344;
+    margin-top:60px;
+    margin-bottom: 30px;
+}
+.weizhi{
+    margin: 20px 0;
+}
+.weizhi label,.weizhi span{
+    font-family: MicrosoftYaHei;
+    font-size: 20px;
+    font-weight: normal;
+}
+.input{
+    width: 500px;
+    height: 30px;
+    background-color: #ffffff;
+    border: solid 1px #dfdfdd;
+}
+.margin{
+
+}
+.margin input{
+    margin:0 10px;
+    width: 15px;
+    height: 15px;
+}
+
+.margin label:nth-of-type(1){
+    width: 70px;
+    margin-right: 40px;
+}
+.margin .span{
+    font-family: MicrosoftYaHei;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 12px;
+    letter-spacing: 2px;
+    color: #888888;
+}
+.button{
+    width: 157px;
+    height: 43px;
+    background-color: #ff6546;
+    border: solid 1px #dfdfdd;
+    font-family: MicrosoftYaHei;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0px;
+    color: #ffffff;
+
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    margin-left:-80px;
+}
+.file_btn{
+    position: absolute;
+    top:106px;
+    right: 0;
+    background: url("../images/touxiang.png") no-repeat;
+    background-size:100%;
+}

@@ -1,0 +1,495 @@
+#wrapper{
+    position: relative;
+    width: 100%;
+}
+.navbar-side{
+    z-index: 1;
+    position: absolute;
+    width: 250px;
+    height: 565px;
+    left: 60px;
+    top: 19px;
+    background: url("../images/矩形7拷贝.png") no-repeat;
+    padding: 45px 14px 31px 45px;
+}
+.navbar-side li .icon{
+    background: url("../images/下拉未.png") no-repeat;
+    width: 16px;
+    height: 18px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 60px;
+}
+.navbar-side li .icon1{
+    background: url("../images/下拉.png") no-repeat;
+    width: 18px;
+    height: 16px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 60px;
+}
+.nav-frist-level li a{
+    font-family: MicrosoftYaHei;
+    font-size: 20px;
+    color: #fff;
+    margin: 0;
+    padding: 5px;
+    padding-top:10px;
+}
+.nav-second-level li a{
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #fff;
+    margin: 0 0 0 10px;
+    padding: 2px;
+    padding-left: 5px;
+}
+.nav-frist-level li a:focus,.nav-frist-level li a:hover{
+    background: #ff6344;
+}
+.nav-frist-level li a:visited{
+    background-color: #ff6344;
+}
+.nav-second-level li a:hover{
+    background: #ff947e;
+}
+.nav-second-level li a:visited{
+    background: #ff947e;
+}
+.active-menu{
+    background-color: #ff947e !important;
+}
+
+#all_activity{
+    width: 920px;
+    height: 541px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 60px;
+}
+
+.f_header{
+    font-family: MicrosoftYaHei;
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 12px;
+    letter-spacing: 2px;
+    color: #424242;
+}
+
+.f_01{
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.f_02{
+    margin-left: 60px;
+    font-weight: bold;
+}
+
+.f_03{
+    margin-left: 339px;
+    font-weight: bold;
+}
+
+.f_04{
+    margin-left: 140px;
+    font-weight: bold;
+}
+
+.f_011{
+    margin-left: 35px;
+    width: 105px;
+    font-weight: bold;
+}
+
+.f_022{
+    width: 432px;
+    font-weight: bold;
+}
+
+.f_033{
+    width: 246px;
+    font-weight: bold;
+}
+
+.f_044{
+    width: 98px;
+    font-weight: bold;
+}
+
+.f_0111{
+    margin-left: 35px;
+    width: 105px;
+    font-weight: bold;
+}
+
+.f_0222{
+    width: 482px;
+    font-weight: bold;
+}
+
+.f_0333{
+    width: 206px;
+    font-weight: bold;
+}
+
+.f_011,.f_022,.f_033,.f_044,.f_0111,.f_0222,.f_0333,.rec_01,.rec_02,.rec_03,.rec_04,.rec_05,.rec_06,.vol_01,.vol_02,.vol_03,.vol_04,.vol_05,.vol_06,.vol_07,.pwd_01,.pwd_02,.pwd_03,.pwd_04,.pwd_05,.pwd_06{
+    float: left;
+    height: 56px;
+    overflow: hidden;
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 26px;
+    letter-spacing: 0px;
+}
+
+.rec_1{
+    margin-left: 22px;
+    font-weight: bold;
+}
+
+.rec_2,.rec_3,.rec_4,.rec_5,.rec_6{
+    margin-left: 90px;
+    font-weight: bold;
+}
+
+.rec_01{
+    width: 132px;
+    margin-left:36px;
+}
+
+.rec_02{
+    width: 161px;
+}
+
+.rec_03{
+    width: 136px;
+}
+
+.rec_04{
+    width: 187px;
+}
+
+.rec_05{
+    width: 207px;
+}
+
+.rec_06{
+    width: 35px;
+}
+
+.rec_01,.rec_02,.rec_03,.rec_04,.rec_05,.rec_06{
+    float: left;
+    font-weight: bold;
+}
+
+.vol_1{
+    margin-left: 22px;
+    font-weight: bold;
+    float: left;
+}
+
+.vol_2,.vol_3,.vol_4,.vol_5,.vol_6,.vol_7{
+    margin-left: 46.5px;
+    font-weight: bold;
+}
+
+.vol_01{
+    width: 85px;
+    margin-left:36px;
+}
+
+.vol_02{
+    width: 105px;
+}
+
+.vol_03{
+    width: 92px;
+}
+
+.vol_04{
+    width: 165px;
+}
+
+.vol_05{
+    width: 200px;
+}
+
+.vol_06{
+    width: 194px;
+}
+.vol_07{
+    width: 35px;
+}
+
+.vol_01,.vol_02,.vol_03,.vol_04,.vol_05,.vol_06,.vol_07{
+    float: left;
+    font-weight: bold;
+}
+
+.pwd_1{
+    margin-left: 22px;
+    font-weight: bold;
+    float: left;
+}
+
+.pwd_2,.pwd_3,.pwd_4,.pwd_5,.pwd_6{
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.pwd_01{
+    width: 60px;
+    margin-left:36px;
+}
+
+.pwd_02{
+    width: 130px;
+}
+
+.pwd_03{
+    width: 190px;
+}
+
+.pwd_04{
+    width: 200px;
+}
+
+.pwd_05{
+    width: 200px;
+}
+
+.pwd_06{
+    width: 60px;
+}
+
+
+.pwd_01,.pwd_02,.pwd_03,.pwd_04,.pwd_05,.pwd_06{
+    float: left;
+    font-weight: bold;
+}
+
+#all_activity li,#all_training li,#pw_training li,#rec_management li,#vol_management li,#all_news li,#pw_details li,#tra_assessment li,#rel_training li,#rel_activity li,#rel_news li{
+    margin-top: 30px;
+}
+
+#all_activity li a,#all_training li a,#pw_assessment1 li a,#rec_management li a,#vol_management li a,#all_news li a{
+    color: #56a3f3;
+    text-decoration: none;
+}
+
+.line_01{
+    height: 1px;
+    border-top: 1px solid #d3d3d3;
+    text-align: center;
+    margin-top: 13px;
+}
+
+
+
+#mulu{
+    width: 268px;
+    height: 15px;
+    margin-top: 30px;
+    text-align: center;
+    margin-left: 319px;
+}
+
+#recdetails_mulu{
+    width: 268px;
+    height: 15px;
+    margin-top: 19px;
+    text-align: center;
+    margin-left: 155px;
+}
+
+.mulu1{
+    color: #dfdfdd;
+    font-weight: bold;
+}
+.mulu2{
+    font-family: MicrosoftYaHei;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 12px;
+    letter-spacing: 1px;
+}
+.mulu3{
+    font-weight: bold;
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    color: #888888;
+}
+
+#all_training{
+    width: 920px;
+    height: 541px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 60px;
+}
+
+#all_news{
+    width: 920px;
+    height: 541px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 60px;
+}
+
+#pw_assessment1{
+    width: 920px;
+    height: 541px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 60px;
+}
+
+#rec_management{
+    width: 920px;
+    height: 541px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 60px;
+}
+
+#rec_details,#act_details,#tra_details{
+    width: 577px;
+    height: 358px;
+    background-color: white;
+    position: absolute;
+    top: 28%;
+    left: 37%;
+    z-index: 1002;
+    border: 1px solid #666;
+    overflow: auto;
+}
+
+#vol_management{
+    width: 920px;
+    height: 541px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 60px;
+}
+
+#pw_details{
+    width: 920px;
+    height: 561px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 45px;
+}
+
+#tra_assessment{
+    width: 920px;
+    height: 561px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 45px;
+}
+
+#rel_training{
+    width: 920px;
+    height: 561px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 45px;
+    font-family: MicrosoftYaHei;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 12px;
+    letter-spacing: 2px;
+    color: #424242;
+}
+
+#rel_activity{
+    width: 920px;
+    height: 561px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 45px;
+    font-family: MicrosoftYaHei;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 12px;
+    letter-spacing: 2px;
+    color: #424242;
+}
+
+#rel_news{
+    width: 920px;
+    height: 561px;
+    background-color: white;
+    margin-left: 348px;
+    margin-top: 45px;
+    font-family: MicrosoftYaHei;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 12px;
+    letter-spacing: 2px;
+    color: #424242;
+}
+
+#bg{ position: absolute; top: 0%; left: 0%; width: 100%; height: 100%; background-color: black; z-index:1001; -moz-opacity: 0.7; opacity:.70; filter: alpha(opacity=70);}
+
+._header{
+    padding-top: 28px;
+    padding-left: 227px;
+    font-family: MicrosoftYaHei;
+    font-size: 22px;
+    font-weight: bold;
+    font-stretch: normal;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: #ff6546;
+}
+
+#rec_details li,#tra_details li,#act_details li{
+    margin-top: 10px;
+    margin-left: 100px;
+    list-style: none;
+
+}
+
+.input1{
+    width: 60px;
+    height: 30px;
+}
+
+.pw_header{
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 12px;
+    letter-spacing: 1px;
+   
+}
+.pw_header_1{
+    color: #ff6344;
+    font-weight: bold;
+}
+
+.file_btn{
+    position: absolute;
+    top:6px;
+    right: -60px;
+    background: url("../images/touxiang.png") no-repeat;
+    background-size:100%;
+}
+
+#rel_training input ,#rel_activity input,#rel_news input,#pw_details input{
+    border: solid 1px #dfdfdd;
+}

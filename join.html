@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>数媒公益</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/nav.css">
+    <link rel="stylesheet" type="text/css" href="css/reg.css">
+    <link rel="stylesheet" type="text/css" href="css/log.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/join.css">
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.form.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="js/messages_zh.min.js"></script>
+    <script type="text/javascript" src="js/reg.js"></script>
+    <script type="text/javascript" src="js/log.js"></script>
+
+</head>
+<body style="max-width: 1366px;margin: 0 auto;">
+
+<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-10 col">
+				<div id="logo"></div>
+				<div id="webname">比心公益</div>
+			</div>
+			<div class="col-md-2 col">
+				<div id="header_member">
+					<a href="#" id="reg_a">注 册</a> |
+					<a href="#" id="log_a">登 录</a>
+				</div>
+			</div>
+		</div>
+</div>
+<div class="container-fluid col">
+	<div class="row nav_style">
+			<ul class="nav navbar-nav" id="nav">
+				<li class="col-md-2 col-sm-2 col"><a href="index.html">首页</a></li>
+				<li class="col-md-3 col-sm-3 col"><a href="activity.html" class="ab">公益活动及培训</a></li>
+				<li class="col-md-2 col-sm-2 col"><a href="news_index.html">新闻</a></li>
+				<li class="col-md-3 col-sm-3 col"><a href="management.html">系统管理</a></li>
+				<li class="col-md-2 col-sm-2 col"><a href="person.html">个人中心</a></li>
+			</ul>
+	</div>
+</div>
+<div class="container">
+    <div class="row activity_style">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="join_style">
+                <div class="join">公益培训 —<span class="join_title">衣暖人心 旧衣再赠 再利用环保公益活动</span></div>
+                <div>
+                    <img src="images/DSCF6352.png" width="200" height="200" style="position: absolute">
+                    <div style="margin-left:220px;margin-bottom: 27px;">
+                        <h2>衣暖人心 旧衣再赠 再利用环保公益活动</h2>
+                        <div ><b>报名截止时间：</b><span class="deadline">2017年12月27日 16:00:00</span></div>
+                        <div><b>报名人数闲置：</b><span class="number now">135</span>/<span class="number sum">500</span></div>
+                        <div ><b>培训地点：</b><span class="address">广州市番禺区大学城广东工业大学东区</span></div>
+                        <div><b>培训时间：</b><span class="time">2017年12月31日 10:00-17:00</span></div>
+
+                    </div><a href="#" class="button">我要参加</a>
+                    <div><b>活动介绍</b><p class="intro">  当下，消费升级的时代，网购更加便利发达，买买买已经成为都市男女日常的行为。当你拆开快递，将一件件新衣服挂进衣柜的时候，通常会遇到一个难题：那些还有点崭新，但是已经不想穿的衣服怎么办？扔掉太可惜，继续保留着也特别占地方，如何更好的处理这些旧衣物，已经成为让很多人头疼的生活问题。</p></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+<div>
+    <form id="reg" action="php/add.php" method="post">
+        <p>
+            <label for="username">帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+            <input type="text" name="username" class="text" />
+            <span class="star">*</span>
+        </p><br>
+        <p>
+            <label for="pass">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+            <input type="password" name="pass" class="text" id="pass"  />
+            <span class="star">*</span>
+        </p><br>
+        <p>
+            <label for="pass">确认密码：</label>
+            <input type="password" name="pass1" class="text"  />
+            <span class="star">*</span>
+        </p><br>
+        <p>
+            <label for="email">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：</label>
+            <input type="email" name="email" class="text"  />
+            <span class="star">*</span>
+        </p><br>
+
+        <ol class="reg_error"></ol>
+    </form>
+</div>
+
+</body>
+</html>
